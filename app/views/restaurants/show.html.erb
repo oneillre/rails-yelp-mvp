@@ -1,6 +1,47 @@
-<h1><%= @restaurant.name %></h1>
+
+<div class="container">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h2 class="card-title"><%= @restaurant.name.capitalize %></h3>
+      <h5 class="card-title"><%= @restaurant.address %></h5>
+      <h5 class="card-title"><%= @restaurant.category.capitalize %></h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <%= link_to new_restaurant_review_path(@restaurant) do %>
+        <button class="btn btn-primary">Leave Review</button>
+      <% end %>
+    </div>
+  </div>
+  <h2>Reviews</h2>
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.label "Add a review" %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit "Submit Review" %>
+  <% end %>
+  <% @restaurant.reviews.each do |review| %>
+    <ul>
+      <li>
+        <div class="card">
+          <div class="card-body">
+            <p><%= review.content %></p>
+            <p>
+              <% @restaurant.average_rating.times do %>
+                <span><i class="fas fa-star"></i></span>
+              <% end %>
+              <% (5 - @restaurant.average_rating).times do %>
+                <span><i class="far fa-star"></i></span>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+</div>
+
+<<!-- h1></h1>
 <h4><%= @restaurant.category %></h4>
-<h4><%= @restaurant.address %></h4>
+<h4></h4>
 <% if @restaurant.phone_number %>
 <p><%= @restaurant.phone_number %></p>
 <% end %>
@@ -12,4 +53,4 @@
     <%= review.rating %>
   </li>
 </ul>
-<% end %>
+<% end %> -->

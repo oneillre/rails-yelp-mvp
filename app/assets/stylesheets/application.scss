@@ -15,6 +15,7 @@
 
 ul {
   list-style-type: none;
+  padding: 0;
   li {
     padding: 0;
   }
@@ -42,4 +43,7 @@ nav {
 
 h1, h4, p {
   margin: 0;
+}
+.simple_form_for {
+  margin: 16px auto;
 }
