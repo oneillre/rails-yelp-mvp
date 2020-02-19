@@ -11,3 +11,35 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+ul {
+  list-style-type: none;
+  li {
+    padding: 0;
+  }
+}
+
+.container {
+  h1 {
+    text-align: center;
+  }
+}
+
+nav {
+  border-bottom: 1px solid rgb(220, 220, 220);
+  a:hover {
+  color: rgb(220, 220, 220);
+  }
+}
+
+.restaurant-card {
+  border-bottom: 1px solid rgb(220, 220, 220);
+  border-radius: 3px;
+  padding: 8px 16px;
+  margin-top: 8px;
+}
+
+h1, h4, p {
+  margin: 0;
+}
